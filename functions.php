@@ -139,7 +139,29 @@ function checkAuthenticate()
         }
     } else {
         exit;
-    }
+    }}
+    function printFailure($message = "none"){
+echo json_encode(array("status" => "failure", "message" => $message)); }
+    
 
-    // End 
+function   printSuccess($message = "none") 
+{
+    echo     json_encode(array("status" => "success" , "message" => $message));
 }
+
+function result($count){
+   if ($count > 0){
+    printSuccess() ; 
+   }else {
+    printFailure()  ; 
+   }
+}
+
+ // End 
+function sendEmail($to, $title,$body){
+
+$header='From: support@amineamine.com';
+
+mail($to,$title,$body,$header);
+};
+
