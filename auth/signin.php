@@ -7,11 +7,10 @@ $password = sha1($_POST['password']);
 
 
 
-$stmt = $con->prepare("select * from users where users_email = ? and users_password = ? and users_approve = 1");
-$stmt->execute(array($email, $password));
+//$stmt = $con->prepare("select * from users where users_email = ? and users_password = ? and users_approve = 1");
+//$stmt->execute(array($email, $password));
+//$count = $stmt->rowCount();
+//result($count);
 
-$count = $stmt->rowCount();
-
-
-result($count);
+getData("users", "users_email = ? and users_password = ? and users_approve = 1", array($email,$password));
 
